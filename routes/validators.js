@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+const queries = require('../db/queries')
 
 
 function validString(string) {
@@ -13,5 +14,8 @@ function formatPhone(phone){
 function validLogin(user){
   return validString(user.phone) && validString(user.password);
 }
+function validCat(cat) {
+  return validString(cat.name) && validString(cat.breed) && validString(cat.age);
+}
 
-module.exports = {validString, validUser, formatPhone, validLogin}
+module.exports = {validString, validUser, formatPhone, validLogin, validCat}
